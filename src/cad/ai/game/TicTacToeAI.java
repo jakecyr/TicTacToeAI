@@ -8,19 +8,10 @@
  * AI-based solutions.
  * See README file for more details.
  ********************/
-
 package cad.ai.game;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Random;
+import java.io.*;
+import java.util.*;
 
 /***********************************************************
  * The AI system for a TicTacToeGame. Most of the game control is handled by the
@@ -29,131 +20,216 @@ import java.util.Random;
  ***********************************************************/
 public class TicTacToeAI extends AbstractAI implements Serializable {
 
-	private static final long serialVersionUID = -5293683841529261141L;
-	public TicTacToeGame game; // The game that this AI system is playing
-	Random ran;
-	
-	private Queue shortTermMemory;
-	private HashMap<String, GameRecord> longTermMemory;
-	
-	private String saveLocation;
+    private static final long serialVersionUID = -5293683841529261141L;
 
-	public TicTacToeAI() {
-		game = null;
-		ran = new Random();
-		saveLocation = "memories.ser";
-		
-		shortTermMemory = new LinkedList<GameRecord>();
-		longTermMemory = new HashMap<String, GameRecord>();
-	}
+    public TicTacToeGame game; // The game that this AI system is playing
 
-	public void attachGame(Game g) {
-		game = (TicTacToeGame) g;
-	}
+    private Random ran;
 
-	/**
-	 * Returns the Move as a String "R,S" R=Row S=Sticks to take from that row
-	 **/
-	public synchronized String computeMove() {
-		if (game == null) {
-			System.err.println("CODE ERROR: AI is not attached to a game.");
-			return "0,0";
-		}
+    private static final int reward = 1;
 
-		char[] board = (char[]) game.getStateAsObject();
+    private HashMap<String, Double> longTermMemory;
+    private HashMap<String, Double> shortTermMemory;
 
-		// First see how many open slots there are
-		int openSlots = 0;
-		int i = 0;
-		for (i = 0; i < board.length; i++)
-			if (board[i] == ' ')
-				openSlots++;
+    private String saveName;
 
-		// Now pick a random open slot
-		int s = ran.nextInt(openSlots);
+    /*
+    * 2 = Random
+    * 1 = Smart
+    * */
+    private int aiType;
 
-		// And get the proper row
-		i = 0;
-		while (s >= 0) {
-			if (board[i] == ' ')
-				s--; // One more open slot down
-			i++;
-		}
+    public TicTacToeAI(String fileName, int type) {
+        game = null;
+        ran = new Random();
 
-		// The position to use is the previous position
-		int pos = i - 1;
-		
-		shortTermMemory.add(boardToString(board));
+        this.saveName = fileName;
+        this.aiType = type;
 
-		return "" + pos;
-	}
-	
-	private String boardToString(char[] board){
-		String boardString = "";
-		
-		for(int i = 0; i < board.length; i++){
-			boardString += board[i];
-		}
-		
-		return boardString.replaceAll(" ", "_");
-	}
+        longTermMemory = new HashMap<String, Double>();
+        shortTermMemory = new HashMap<String, Double>();
 
-	/**
-	 * Inform AI who the winner is result is either (H)ome win, (A)way win,
-	 * (T)ie
-	 **/
-	@Override
-	public synchronized void postWinner(char result) {
-		// This AI probably wants to store what it has learned
-		// about this particular game.
-		game = null; // No longer playing a game though.
-		
-		for(int i = 0; i < shortTermMemory.size(); i++){
-			longTermMemory.put((String) shortTermMemory.remove(), new GameRecord(0,0,0));
-		}
-		
-		System.out.println(longTermMemory.toString());
-		
-		saveMemory(saveLocation);
-	}
+        loadMemory(this.saveName);
+    }
 
-	/**
-	 * Shutdown the AI - allowing it to save its learned experience
-	 **/
-	@Override
-	public synchronized void end() {
-		// This AI probably wants to store (in a file) what
-		// it has learned from playing all the games so far...
-	}
-	
-	
-	public void saveMemory(String fileLocation) {
+    public int getRandomMove(char[] boardConfig) {
+        shortTermMemory.put(boardToString(boardConfig), 0.0);
+        int random = (int) (Math.random() * getEmptySpaces(boardConfig).size());
+        return getEmptySpaces(boardConfig).get(random);
+    }
+
+    public int getSmartMove(char[] boardConfig) {
+
+        String boardString = boardToString(boardConfig);
+        ArrayList<Integer> emptySpaces = getEmptySpaces(boardConfig);
+
+        double bestScore = -100000;
+        int move = 0;
+
+        for (int i : emptySpaces) {
+            char[] tempBoard = boardConfig.clone();
+            tempBoard[i] = game.getPlayer() == 1 ? 'X' : 'O';
+            String tempBoardString = boardToString(tempBoard);
+
+            if (longTermMemory.containsKey(tempBoardString)) {
+                double currentValue = longTermMemory.get(tempBoardString);
+                if (currentValue > bestScore) {
+                    bestScore = currentValue;
+                    move = i;
+                }
+            }
+            else{
+                shortTermMemory.put(tempBoardString, 0.0);
+            }
+        }
+
+        shortTermMemory.put(boardString, 0.0);
+
+        if (bestScore != -100000) {
+//            System.out.println("AI MOVE");
+            return move;
+        } else {
+//            System.out.println("RANDOM MOVE");
+            int random = (int) (Math.random() * emptySpaces.size());
+            return emptySpaces.get(random);
+        }
+    }
+
+    private ArrayList<Integer> getEmptySpaces(char[] board) {
+        ArrayList<Integer> emptySpaces = new ArrayList<>();
+        for (int i = 0; i < board.length; i++) {
+            if (board[i] == ' ') {
+                emptySpaces.add(i);
+            }
+        }
+        return emptySpaces;
+    }
+
+    public void attachGame(Game g) {
+        game = (TicTacToeGame) g;
+    }
+
+    /**
+     * Returns the Move as a String "R,S" R=Row S=Sticks to take from that row
+     **/
+    public synchronized String computeMove() {
+        if (game == null) {
+            System.err.println("CODE ERROR: AI is not attached to a game.");
+            return "0,0";
+        }
+
+        char[] board = (char[]) game.getStateAsObject();
+
+        return "" + getRandomMove(board);
+    }
+
+    private String boardToString(char[] board) {
+        String boardString = "";
+
+        for (int i = 0; i < board.length; i++) {
+            boardString += board[i];
+        }
+
+        return boardString.replaceAll(" ", "_");
+    }
+
+    public void rememberGame(char result) {
+        char playerPiece = game.getPlayer() == 1 ? 'H': 'A';
+
+        for (String s : shortTermMemory.keySet()) {
+            if (longTermMemory.containsKey(s)) {
+                double tempScore = longTermMemory.get(s);
+
+                //Win
+                if (result == playerPiece) {
+                    longTermMemory.replace(s, tempScore + 1);
+                }
+                //Tie
+                else if (result == 'T') {
+
+                }
+                //Lose
+                else {
+                    longTermMemory.replace(s, tempScore - 1);
+                }
+            } else {
+                //Win
+                if (result == playerPiece) {
+                    longTermMemory.put(s, 1.0);
+                }
+                //Tie
+                else if (result == 'T') {
+
+                }
+                //Loss
+                else {
+                    longTermMemory.put(s, -1.0);
+                }
+            }
+        }
+    }
+
+    /**
+     * Inform AI who the winner is result is either (H)ome win, (A)way win,
+     * (T)ie
+     **/
+    @Override
+    public synchronized void postWinner(char result) {
+        // This AI probably wants to store what it has learned
+        // about this particular game.
+
+        rememberGame(result);
+        //System.out.println(longTermMemory.toString());
+//        saveMemory(this.saveName);
+        //System.out.println(longTermMemory.toString());
+        game = null; // No longer playing a game though.
+    }
+
+    /**
+     * Shutdown the AI - allowing it to save its learned experience
+     **/
+    @Override
+    public synchronized void end() {
+        // This AI probably wants to store (in a file) what
+        // it has learned from playing all the games so far...
+
+        saveMemory(this.saveName);
+    }
+
+    public void saveMemory(String fileLocation) {
         try {
-            FileOutputStream fileOut = new FileOutputStream(fileLocation);
+            File varTmpDir = new File(fileLocation + ".ser");
+            if(!varTmpDir.exists()) {
+                varTmpDir.createNewFile();
+            }
+            FileOutputStream fileOut = new FileOutputStream(varTmpDir);
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(longTermMemory);
             out.close();
             fileOut.close();
-            System.out.printf("Saved memories in " + fileLocation);
+            System.out.println("Saved memories in " + fileLocation);
         } catch (IOException i) {
             i.printStackTrace();
         }
 
-        System.out.println(longTermMemory.toString());
+//        System.out.println(longTermMemory.toString());
     }
 
     public void loadMemory(String fileLocation) {
         try {
-            FileInputStream fileIn = new FileInputStream(fileLocation);
-            ObjectInputStream in = new ObjectInputStream(fileIn);
-            longTermMemory = (HashMap<String, GameRecord>) in.readObject();
-            in.close();
-            fileIn.close();
+            File varTmpDir = new File(fileLocation + ".ser");
+            if(varTmpDir.exists()) {
+                FileInputStream fileIn = new FileInputStream(varTmpDir);
+                ObjectInputStream in = new ObjectInputStream(fileIn);
+                longTermMemory = (HashMap<String, Double>) in.readObject();
+                in.close();
+                fileIn.close();
+            }
         } catch (IOException i) {
             i.printStackTrace();
             return;
         } catch (ClassNotFoundException c) {
-            System.out.println("Employee class not found");
+            System.out.println("File not found");
             c.printStackTrace();
             return;
         }

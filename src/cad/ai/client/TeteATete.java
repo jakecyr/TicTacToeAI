@@ -93,7 +93,7 @@ public class TeteATete {
 	case NIM:
 	    ai = new NimAI(); break;
 	case TTT:
-	    ai = new TicTacToeAI(); break;
+	    ai = new TicTacToeAI("memories3", 2); break;
 	}
     }
 
