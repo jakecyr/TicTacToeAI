@@ -1,4 +1,4 @@
-/*******************
+/*
  * Christian A. Duncan
  * CSC350: Intelligent Systems
  * Spring 2017
@@ -6,8 +6,7 @@
  * AI Game Interface
  * This project is designed to support a simple direct interaction of a 2-player turn-based game.
  * See README file for more details.
- ********************/
-
+*/
 package cad.ai.game;
 
 import java.io.BufferedReader;
@@ -27,7 +26,7 @@ public class PlayGame {
     private Game serverGame = null;
     private AI ai[];
 
-    private static enum GameType {
+    private enum GameType {
         NIM, TTT
     }
 
@@ -105,7 +104,7 @@ public class PlayGame {
     /**
      * Start playing the game
      **/
-    public void run() {
+    private void run() {
         // Play multiple games...
         for (int i = 0; i < numGames; i++) {
             createGame();
@@ -123,7 +122,7 @@ public class PlayGame {
     /**
      * Create a new "game" based on Game Type
      **/
-    public void createGame() {
+    private void createGame() {
         switch (gameType) {
             case TTT:
                 for (int p = 0; p < 2; p++)
@@ -142,6 +141,7 @@ public class PlayGame {
      * Play the current game
      **/
     private void playGame() {
+
         while (!serverGame.isDone()) {
             String state = serverGame.getState(true); // Get the state
             int turn = serverGame.getTurn(); // Whose turn is it
@@ -396,7 +396,7 @@ public class PlayGame {
     /**
      * Print Usage message and exit
      **/
-    public static void printUsage(String message) {
+    private static void printUsage(String message) {
         System.err.println("Usage: java cad.ai.game.PlayGame [params]");
         System.err.println("       Where params are:");
         System.err.println("         --help                -- Print this usage message");
