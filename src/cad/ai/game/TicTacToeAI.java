@@ -24,14 +24,14 @@ public class TicTacToeAI extends AbstractAI implements Serializable {
 
     public TicTacToeGame game; // The game that this AI system is playing
 
-    private int heat = 100000;
+    private int heat = 500;
 
     private int wins = 0;
     private int losses = 0;
     private int ties = 0;
 
     private HashMap<String, ShortTermMemory> longTermMemory;
-    private HashMap<String, Double> shortTermMemory;
+    private Queue<String> records;
 
     private String saveName;
 
@@ -48,16 +48,21 @@ public class TicTacToeAI extends AbstractAI implements Serializable {
         this.aiType = type;
 
         longTermMemory = new HashMap<>();
-        shortTermMemory = new HashMap<>();
+        records = new LinkedList<String>();
 
         loadMemory(this.saveName);
     }
 
     private int getRandomMove(char[] boardConfig) {
         int random = (int) (Math.random() * getEmptySpaces(boardConfig).size());
+
+        char currentPlayer = (game.getPlayer() == 0)? 'X':'O';
+
         char[] tempBoard = boardConfig.clone();
-        tempBoard[random] = (game.getPlayer() == 0)? 'X':'O';
-        shortTermMemory.put(boardToString(tempBoard), 0.0);
+
+        tempBoard[getEmptySpaces(boardConfig).get(random)] = currentPlayer;
+
+        records.add(boardToString(tempBoard));
 
         return getEmptySpaces(boardConfig).get(random);
     }
@@ -84,7 +89,8 @@ public class TicTacToeAI extends AbstractAI implements Serializable {
                 double currentValue = ((float) (((memory.getWins() - memory.getLosses()) / (memory.getLosses() + memory.getWins() + memory.getTies())) + 1) / 2);
                 double adjust = Math.random() * heat;
 
-                currentValue *= adjust;
+                currentValue *= 1000;
+                currentValue += adjust;
 
                 if (currentValue > bestScore) {
                     bestScore = currentValue;
@@ -96,14 +102,31 @@ public class TicTacToeAI extends AbstractAI implements Serializable {
         }
 
         if (found) {
-            shortTermMemory.put(bestChoice, 0.0);
-            System.out.println(bestScore);
+            records.add(bestChoice);
+//            System.out.println(bestScore);
             return move;
 
         } else {
 //            System.out.println("Random");
             return getRandomMove(boardConfig);
         }
+    }
+
+    public synchronized String computeMove() {
+        if (game == null) {
+            System.err.println("CODE ERROR: AI is not attached to a game.");
+            return "0,0";
+        }
+
+        char[] board = (char[]) game.getStateAsObject();
+
+        if(aiType == 1){
+            return "" + getSmartMove(board);
+        }
+        else{
+            return "" + getRandomMove(board);
+        }
+
     }
 
     private ArrayList<Integer> getEmptySpaces(char[] board) {
@@ -118,19 +141,6 @@ public class TicTacToeAI extends AbstractAI implements Serializable {
 
     public void attachGame(Game g) {
         game = (TicTacToeGame) g;
-    }
-
-    /**
-     * Returns the Move as a String "R,S" R=Row S=Sticks to take from that row
-     **/
-    public synchronized String computeMove() {
-        if (game == null) {
-            System.err.println("CODE ERROR: AI is not attached to a game.");
-            return "0,0";
-        }
-
-        char[] board = (char[]) game.getStateAsObject();
-        return "" + getSmartMove(board);
     }
 
     private String boardToString(char[] board) {
@@ -150,7 +160,12 @@ public class TicTacToeAI extends AbstractAI implements Serializable {
         else if (result == 'T') ties++;
         else losses++;
 
-        for (String s : shortTermMemory.keySet()) {
+        String s;
+
+        for(int i = 0 ; i < records.size(); i++){
+            s = records.remove().toString();
+
+//            System.out.println(s);
 
             if (longTermMemory.containsKey(s)) {
                 ShortTermMemory shortTermMemory = longTermMemory.get(s);
@@ -202,12 +217,14 @@ public class TicTacToeAI extends AbstractAI implements Serializable {
 
 //        if(heat > 0) heat = heat - 1;
 
-        game = null; // No longer playing a game though.
+//        System.out.println( game.getPlayer() == 0 ? 'X':'O' );
 
-        for(String s: longTermMemory.keySet()){
-            ShortTermMemory shortTermMemory1 = longTermMemory.get(s);
-            System.out.println(s + " " + shortTermMemory1.getWins() + " " + shortTermMemory1.getLosses() + " " + shortTermMemory1.getTies());
-        }
+//        for(String s: longTermMemory.keySet()){
+//            ShortTermMemory shortTermMemory1 = longTermMemory.get(s);
+//            System.out.println(s + " " + shortTermMemory1.getWins() + " " + shortTermMemory1.getLosses() + " " + shortTermMemory1.getTies());
+//        }
+
+        game = null; // No longer playing a game though.
 
     }
 
