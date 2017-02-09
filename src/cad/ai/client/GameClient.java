@@ -108,10 +108,10 @@ public class GameClient {
 	if (aiLevel <= 0) 
 	    ai = new NimAI();   // To play Nim
 	else if (aiLevel == 1)
-	    ai = new TicTacToeAI("memories1", 1);
+	    ai = new TicTacToeAI("memories1", "memories1", 1);
 	else {
 	    System.err.println("WARNING: Unknown AI level.  Using default.");
-	    ai = new TicTacToeAI("memories2", 2);
+	    ai = new TicTacToeAI("memories2", "memories2", 2);
 	}
     }
 

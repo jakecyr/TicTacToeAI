@@ -24,7 +24,7 @@ public class TicTacToeAI extends AbstractAI implements Serializable {
 
     public TicTacToeGame game; // The game that this AI system is playing
 
-    private int heat = 500;
+    private double heat = 0;
 
     private int wins = 0;
     private int losses = 0;
@@ -35,46 +35,49 @@ public class TicTacToeAI extends AbstractAI implements Serializable {
 
     private String saveName;
 
+    private long time;
+
     /*
     * 2 = Random
     * 1 = Smart
     * */
     private int aiType;
 
-    public TicTacToeAI(String fileName, int type) {
+    public TicTacToeAI(String loadFrom, String saveTo, int type) {
         game = null;
 
-        this.saveName = fileName;
+        time = System.nanoTime();
+        this.saveName = saveTo;
+
         this.aiType = type;
 
         longTermMemory = new HashMap<>();
-        records = new LinkedList<String>();
+        records = new LinkedList<>();
 
-        loadMemory(this.saveName);
+        loadMemory(loadFrom);
     }
 
     private int getRandomMove(char[] boardConfig) {
-        int random = (int) (Math.random() * getEmptySpaces(boardConfig).size());
+        ArrayList<Integer> emptySpaces = getEmptySpaces(boardConfig);
 
-        char currentPlayer = (game.getPlayer() == 0)? 'X':'O';
-
+        int random = (int) (Math.random() * emptySpaces.size());
+        int randomSpace = emptySpaces.get(random);
+        char currentPlayer = (game.getPlayer() == 0) ? 'X' : 'O';
         char[] tempBoard = boardConfig.clone();
 
-        tempBoard[getEmptySpaces(boardConfig).get(random)] = currentPlayer;
-
+        tempBoard[randomSpace] = currentPlayer;
         records.add(boardToString(tempBoard));
 
-        return getEmptySpaces(boardConfig).get(random);
+        return randomSpace;
     }
 
     private int getSmartMove(char[] boardConfig) {
 
         ArrayList<Integer> emptySpaces = getEmptySpaces(boardConfig);
 
-        double bestScore = -1000000;
+        double bestScore = -1;
         String bestChoice = "";
         int move = 0;
-        boolean found = false;
 
         for (Integer emptySpace : emptySpaces) {
             int space = emptySpace;
@@ -86,28 +89,29 @@ public class TicTacToeAI extends AbstractAI implements Serializable {
             ShortTermMemory memory = longTermMemory.get(tempBoardString);
 
             if (memory != null) {
-                double currentValue = ((float) (((memory.getWins() - memory.getLosses()) / (memory.getLosses() + memory.getWins() + memory.getTies())) + 1) / 2);
+                float currentValue = (float) (memory.getWins() - memory.getLosses()) / (memory.getLosses() + memory.getWins() + memory.getTies());
                 double adjust = Math.random() * heat;
 
-                currentValue *= 1000;
+//                System.out.println(tempBoardString + " Current value: " + currentValue + " Adjustment Value: " + adjust + " Adjusted CV: " + (adjust+currentValue));
+
                 currentValue += adjust;
 
                 if (currentValue > bestScore) {
                     bestScore = currentValue;
                     move = space;
-                    found = true;
                     bestChoice = tempBoardString;
                 }
             }
         }
 
-        if (found) {
+        records.add(boardToString(boardConfig));
+
+        if (!Objects.equals(bestChoice, "")) {
+//            System.out.println(bestScore + " " + bestChoice);
             records.add(bestChoice);
-//            System.out.println(bestScore);
             return move;
 
         } else {
-//            System.out.println("Random");
             return getRandomMove(boardConfig);
         }
     }
@@ -120,13 +124,11 @@ public class TicTacToeAI extends AbstractAI implements Serializable {
 
         char[] board = (char[]) game.getStateAsObject();
 
-        if(aiType == 1){
+        if (aiType == 1) {
             return "" + getSmartMove(board);
-        }
-        else{
+        } else {
             return "" + getRandomMove(board);
         }
-
     }
 
     private ArrayList<Integer> getEmptySpaces(char[] board) {
@@ -162,14 +164,12 @@ public class TicTacToeAI extends AbstractAI implements Serializable {
 
         String s;
 
-        for(int i = 0 ; i < records.size(); i++){
-            s = records.remove().toString();
+        for (int i = 0; i < records.size(); i++) {
+            s = records.remove();
 
-//            System.out.println(s);
+            ShortTermMemory shortTermMemory = longTermMemory.get(s);
 
-            if (longTermMemory.containsKey(s)) {
-                ShortTermMemory shortTermMemory = longTermMemory.get(s);
-
+            if (shortTermMemory != null) {
                 //Win
                 if (result == playerPiece) {
                     shortTermMemory.setWins(shortTermMemory.getWins() + 1);
@@ -183,9 +183,7 @@ public class TicTacToeAI extends AbstractAI implements Serializable {
                     shortTermMemory.setLosses(shortTermMemory.getLosses() + 1);
                 }
 
-                longTermMemory.put(s, shortTermMemory);
             } else {
-                ShortTermMemory shortTermMemory;
 
                 //Win
                 if (result == playerPiece) {
@@ -215,14 +213,15 @@ public class TicTacToeAI extends AbstractAI implements Serializable {
     public synchronized void postWinner(char result) {
         rememberGame(result);
 
-//        if(heat > 0) heat = heat - 1;
+//        if(heat > 0) heat = heat - 0.001;
 
 //        System.out.println( game.getPlayer() == 0 ? 'X':'O' );
 
 //        for(String s: longTermMemory.keySet()){
 //            ShortTermMemory shortTermMemory1 = longTermMemory.get(s);
 //            System.out.println(s + " " + shortTermMemory1.getWins() + " " + shortTermMemory1.getLosses() + " " + shortTermMemory1.getTies());
-//        }
+//        }7
+
 
         game = null; // No longer playing a game though.
 
@@ -235,6 +234,8 @@ public class TicTacToeAI extends AbstractAI implements Serializable {
     public synchronized void end() {
         System.out.println("Wins: " + wins + " Ties: " + ties + " Losses: " + losses + " Name: " + saveName);
         saveMemory(this.saveName);
+
+        System.out.println("Time: " +  (System.nanoTime() - time));
     }
 
     private void saveMemory(String fileLocation) {
@@ -278,4 +279,26 @@ public class TicTacToeAI extends AbstractAI implements Serializable {
         System.out.println("RECALLED MEMORIES from " + fileLocation + ": " + longTermMemory.toString());
     }
 
+    public void updateLongTermMemory(String board, int wins, int ties, int losses) {
+        ShortTermMemory stm = longTermMemory.get(board);
+        stm.setWins(wins);
+        stm.setTies(ties);
+        stm.setLosses(losses);
+
+        longTermMemory.replace(board, stm);
+    }
+
+    private void getLongTermMemory(String board) {
+        ShortTermMemory stm = longTermMemory.get(board);
+        System.out.println(stm.getWins());
+        System.out.println(stm.getTies());
+        System.out.println(stm.getLosses());
+    }
+
+    public static void main(String[] args) {
+//        TicTacToeAI ai = new TicTacToeAI("memoriesH", 1);
+        //ai.loadMemory("memoriesH");
+
+//        ai.getLongTermMemory("X_______");
+    }
 }
