@@ -36,8 +36,8 @@ public class BoardRecord implements Serializable {
         this.losses = losses;
     }
 
-    public String toString(){
-        return this.wins + ", " + this.ties + ", " + this.losses;
-    }
+//    public String toString(){
+//        return this.wins + ", " + this.ties + ", " + this.losses;
+//    }
 
 }

@@ -91,7 +91,10 @@ public class TicTacToeAI extends AbstractAI implements Serializable {
 
 //           System.out.println(space);
 
-            char[] tempBoard = boardConfig.clone();
+            char[] tempBoard = new char[boardConfig.length];
+
+            System.arraycopy( boardConfig, 0, tempBoard, 0, boardConfig.length );
+
             tempBoard[space] = game.getPlayer() == 0 ? 'X' : 'O';
             String tempBoardString = boardToString(tempBoard);
 
@@ -128,12 +131,8 @@ public class TicTacToeAI extends AbstractAI implements Serializable {
 
         char[] board = (char[]) game.getStateAsObject();
 
-        if (aiType == 1) {
-            if (((int) (Math.random() * heat)) == 2) {
-                return "" + getRandomMove(board);
-            } else {
-                return "" + getSmartMove(board);
-            }
+        if (aiType == 1 && ((int) (Math.random() * heat)) != 2) {
+            return "" + getSmartMove(board);
         } else {
             return "" + getRandomMove(board);
         }
@@ -166,6 +165,7 @@ public class TicTacToeAI extends AbstractAI implements Serializable {
     private void rememberGame(char result) {
 
         char playerPiece = game.getPlayer() == 0 ? 'H' : 'A';
+        char playerPiece2 = game.getPlayer() == 0 ? 'X' : 'O';
 
 //        System.out.println(shortTermMemory);
 
@@ -179,27 +179,35 @@ public class TicTacToeAI extends AbstractAI implements Serializable {
 
         String s;
 
-        for (String memory: shortTermMemory) {
+        for (String memory : shortTermMemory) {
+
+//            System.out.println(playerPiece + " " + result + " " +  memory);
 
             s = memory;
 
             BoardRecord boardRecord = longTermMemory.get(s);
 
+            boolean print = false;
+
+            if (s.charAt(0) == playerPiece2 && s.charAt(1) == playerPiece2 && s.charAt(2) == playerPiece2 || s.charAt(3) == playerPiece2 && s.charAt(4) == playerPiece2 && s.charAt(5) == playerPiece2) {
+//                System.out.println(playerPiece + " " + result + " " + " WON " + memory + " " + boardToString((char[])game.getStateAsObject()));
+//                print = true;
+            }
             if (boardRecord != null) {
                 //Win
                 if (result == playerPiece) {
                     boardRecord.setWins(boardRecord.getWins() + 1);
-//                    System.out.println(playerPiece + " " + result + " W");
+                    if (print) System.out.println(playerPiece + " " + result + " W");
                 }
                 //Tie
                 else if (result == 'T') {
                     boardRecord.setTies(boardRecord.getTies() + 1);
-//                    System.out.println(playerPiece + " " + result + " T");
+                    if (print) System.out.println(playerPiece + " " + result + " T");
                 }
                 //Lose
                 else {
                     boardRecord.setLosses(boardRecord.getLosses() + 1);
-//                    System.out.println(playerPiece + " " + result + " L");
+                    if (print) System.out.println(playerPiece + " " + result + " L");
                 }
 
             } else {
@@ -207,24 +215,24 @@ public class TicTacToeAI extends AbstractAI implements Serializable {
                 //Win
                 if (result == playerPiece) {
                     boardRecord = new BoardRecord(1, 0, 0);
-//                    System.out.println(playerPiece + " " + result + " W");
+                    if (print) System.out.println(playerPiece + " " + result + " W");
                 }
                 //Tie
                 else if (result == 'T') {
                     boardRecord = new BoardRecord(0, 1, 0);
-//                    System.out.println(playerPiece + " " + result + " T");
+                    if (print) System.out.println(playerPiece + " " + result + " T");
                 }
                 //Lose
                 else {
                     boardRecord = new BoardRecord(0, 0, 1);
-//                    System.out.println(playerPiece + " " + result + " L");
+                    if (print) System.out.println(playerPiece + " " + result + " L");
                 }
 
                 longTermMemory.put(s, boardRecord);
             }
         }
 
-
+        shortTermMemory = new ArrayList<String>();
     }
 
     /**
@@ -251,12 +259,12 @@ public class TicTacToeAI extends AbstractAI implements Serializable {
 
         System.out.println("Time: " + (System.nanoTime() - time));
 
-        System.out.println("\n\n");
-        for (String key : longTermMemory.keySet()) {
-            System.out.println(this.saveName);
-            System.out.println(key + " " + longTermMemory.get(key).toString());
-        }
-        System.out.println("\n\n");
+//        System.out.println("\n\n");
+//        for (String key : longTermMemory.keySet()) {
+//            System.out.println(this.saveName);
+//            System.out.println(key + " " + longTermMemory.get(key).toString());
+//        }
+//        System.out.println("\n\n");
     }
 
     private void saveMemory(String fileLocation) {
