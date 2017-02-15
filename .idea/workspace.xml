@@ -7,8 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="69ed690d-69b8-4584-af6a-9df27ccea881" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/memoriesA.ser" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/memoriesH.ser" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/cad/ai/game/ShortTermMemory.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/memoriesA.ser" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/memoriesH.ser" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/cad/ai/game/ShortTermMemory.java" afterPath="$PROJECT_DIR$/src/cad/ai/game/BoardRecord.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/cad/ai/game/PlayGame.class" afterPath="$PROJECT_DIR$/bin/cad/ai/game/PlayGame.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/cad/ai/game/TicTacToeAI.class" afterPath="$PROJECT_DIR$/bin/cad/ai/game/TicTacToeAI.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/TicTacToe_jar/TicTacToe.jar" afterPath="$PROJECT_DIR$/classes/artifacts/TicTacToe_jar/TicTacToe.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -32,25 +35,9 @@
       <file leaf-file-name="TicTacToeAI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/cad/ai/game/TicTacToeAI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="30" column="28" lean-forward="false" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
-              <folding>
-                <element signature="docComment;class#TicTacToeAI#0" expanded="false" />
-                <element signature="method#TicTacToeAI#0;class#TicTacToeAI#0" expanded="false" />
-                <element signature="method#getRandomMove#0;class#TicTacToeAI#0" expanded="false" />
-                <element signature="method#getSmartMove#0;class#TicTacToeAI#0" expanded="false" />
-                <element signature="method#getEmptySpaces#0;class#TicTacToeAI#0" expanded="false" />
-                <element signature="method#boardToString#0;class#TicTacToeAI#0" expanded="false" />
-                <element signature="docComment;method#postWinner#0;class#TicTacToeAI#0" expanded="false" />
-                <element signature="method#postWinner#0;class#TicTacToeAI#0" expanded="false" />
-                <element signature="e#5946#5989#0" expanded="false" />
-                <element signature="docComment;method#end#0;class#TicTacToeAI#0" expanded="false" />
-                <element signature="method#end#0;class#TicTacToeAI#0" expanded="false" />
-                <element signature="method#updateLongTermMemory#0;class#TicTacToeAI#0" expanded="false" />
-                <element signature="method#getLongTermMemory#0;class#TicTacToeAI#0" expanded="false" />
-                <element signature="method#main#0;class#TicTacToeAI#0" expanded="false" />
-                <element signature="e#8850#8909#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="-1219">
+              <caret line="91" column="13" lean-forward="false" selection-start-line="91" selection-start-column="13" selection-end-line="91" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -58,8 +45,8 @@
       <file leaf-file-name="PlayGame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cad/ai/game/PlayGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="85" column="27" lean-forward="true" selection-start-line="85" selection-start-column="27" selection-end-line="85" selection-end-column="27" />
+            <state relative-caret-position="224">
+              <caret line="79" column="27" lean-forward="true" selection-start-line="79" selection-start-column="27" selection-end-line="79" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;class#PlayGame#0" expanded="false" />
@@ -127,19 +114,20 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/cad/ai/game/ShortTermMemory.java" />
         <option value="$PROJECT_DIR$/src/cad/ai/game/NimGame.java" />
         <option value="$PROJECT_DIR$/src/cad/ai/client/GameClient.java" />
         <option value="$PROJECT_DIR$/src/cad/ai/client/TeteATete.java" />
+        <option value="$PROJECT_DIR$/src/cad/ai/game/ShortTermMemory.java" />
         <option value="$PROJECT_DIR$/src/cad/ai/game/PlayGame.java" />
+        <option value="$PROJECT_DIR$/src/cad/ai/game/BoardRecord.java" />
         <option value="$PROJECT_DIR$/src/cad/ai/game/TicTacToeAI.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="720" />
-    <option name="height" value="759" />
+    <option name="width" value="1440" />
+    <option name="height" value="758" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -176,7 +164,7 @@
       </extension>
       <option name="MAIN_CLASS_NAME" value="cad.ai.game.PlayGame" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="--home=ai --away=ai --repeat=100000 --verbose=0" />
+      <option name="PROGRAM_PARAMETERS" value="--home=ai --away=ai --repeat=1000000 --verbose=0" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -195,9 +183,9 @@
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="cad.ai.game.TicTacToeAI" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
@@ -425,6 +413,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="69ed690d-69b8-4584-af6a-9df27ccea881" name="Default" comment="" />
@@ -436,7 +427,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="720" height="759" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="758" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -448,7 +439,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27826086" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33817127" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -474,7 +465,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="13" />
+      <option name="time" value="15" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -487,23 +478,227 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cad/ai/game/PlayGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="80" column="75" lean-forward="false" selection-start-line="80" selection-start-column="75" selection-end-line="80" selection-end-column="75" />
           <folding>
-            <element signature="docComment;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#TicTacToeAI#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#getRandomMove#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#getSmartMove#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#getEmptySpaces#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#boardToString#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="docComment;method#postWinner#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#postWinner#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="e#5946#5989#0" expanded="false" />
-            <element signature="docComment;method#end#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#end#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#updateLongTermMemory#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#getLongTermMemory#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#main#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="e#8850#8909#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#PlayGame#0" expanded="false" />
+            <element signature="class#GameType#0;class#PlayGame#0" expanded="false" />
+            <element signature="docComment;method#PlayGame#0;class#PlayGame#0" expanded="false" />
+            <element signature="e#1591#1600#0" expanded="false" />
+            <element signature="e#1886#1925#0" expanded="false" />
+            <element signature="docComment;method#run#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#run#0;class#PlayGame#0" expanded="false" />
+            <element signature="docComment;method#createGame#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#createGame#0;class#PlayGame#0" expanded="false" />
+            <element signature="docComment;method#playGame#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#playGame#0;class#PlayGame#0" expanded="false" />
+            <element signature="docComment;method#processInput#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processInput#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processErrorMessage#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processMessage#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processGameCommands#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processGameStart#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processGameState#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processGameMove#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processGameErrorMessage#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processGameMessage#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processGameResult#0;class#PlayGame#0" expanded="false" />
+            <element signature="docComment;method#main#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#main#0;class#PlayGame#0" expanded="false" />
+            <element signature="docComment;method#printUsage#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#printUsage#0;class#PlayGame#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cad/ai/game/TicTacToeAI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cad/ai/game/PlayGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1200">
+          <caret line="80" column="75" lean-forward="false" selection-start-line="80" selection-start-column="75" selection-end-line="80" selection-end-column="75" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#PlayGame#0" expanded="false" />
+            <element signature="class#GameType#0;class#PlayGame#0" expanded="false" />
+            <element signature="docComment;method#PlayGame#0;class#PlayGame#0" expanded="false" />
+            <element signature="e#1591#1600#0" expanded="false" />
+            <element signature="e#1886#1925#0" expanded="false" />
+            <element signature="docComment;method#run#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#run#0;class#PlayGame#0" expanded="false" />
+            <element signature="docComment;method#createGame#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#createGame#0;class#PlayGame#0" expanded="false" />
+            <element signature="docComment;method#playGame#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#playGame#0;class#PlayGame#0" expanded="false" />
+            <element signature="docComment;method#processInput#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processInput#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processErrorMessage#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processMessage#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processGameCommands#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processGameStart#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processGameState#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processGameMove#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processGameErrorMessage#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processGameMessage#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processGameResult#0;class#PlayGame#0" expanded="false" />
+            <element signature="docComment;method#main#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#main#0;class#PlayGame#0" expanded="false" />
+            <element signature="docComment;method#printUsage#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#printUsage#0;class#PlayGame#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cad/ai/game/TicTacToeAI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cad/ai/game/PlayGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1200">
+          <caret line="80" column="75" lean-forward="false" selection-start-line="80" selection-start-column="75" selection-end-line="80" selection-end-column="75" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#PlayGame#0" expanded="false" />
+            <element signature="class#GameType#0;class#PlayGame#0" expanded="false" />
+            <element signature="docComment;method#PlayGame#0;class#PlayGame#0" expanded="false" />
+            <element signature="e#1591#1600#0" expanded="false" />
+            <element signature="e#1886#1925#0" expanded="false" />
+            <element signature="docComment;method#run#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#run#0;class#PlayGame#0" expanded="false" />
+            <element signature="docComment;method#createGame#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#createGame#0;class#PlayGame#0" expanded="false" />
+            <element signature="docComment;method#playGame#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#playGame#0;class#PlayGame#0" expanded="false" />
+            <element signature="docComment;method#processInput#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processInput#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processErrorMessage#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processMessage#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processGameCommands#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processGameStart#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processGameState#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processGameMove#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processGameErrorMessage#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processGameMessage#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processGameResult#0;class#PlayGame#0" expanded="false" />
+            <element signature="docComment;method#main#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#main#0;class#PlayGame#0" expanded="false" />
+            <element signature="docComment;method#printUsage#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#printUsage#0;class#PlayGame#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cad/ai/game/TicTacToeAI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="27" lean-forward="false" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cad/ai/game/PlayGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#PlayGame#0" expanded="false" />
+            <element signature="class#GameType#0;class#PlayGame#0" expanded="false" />
+            <element signature="docComment;method#PlayGame#0;class#PlayGame#0" expanded="false" />
+            <element signature="e#1591#1600#0" expanded="false" />
+            <element signature="e#1886#1925#0" expanded="false" />
+            <element signature="docComment;method#run#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#run#0;class#PlayGame#0" expanded="false" />
+            <element signature="docComment;method#createGame#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#createGame#0;class#PlayGame#0" expanded="false" />
+            <element signature="docComment;method#playGame#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#playGame#0;class#PlayGame#0" expanded="false" />
+            <element signature="docComment;method#processInput#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processInput#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processErrorMessage#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processMessage#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processGameCommands#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processGameStart#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processGameState#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processGameMove#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processGameErrorMessage#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processGameMessage#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processGameResult#0;class#PlayGame#0" expanded="false" />
+            <element signature="docComment;method#main#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#main#0;class#PlayGame#0" expanded="false" />
+            <element signature="docComment;method#printUsage#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#printUsage#0;class#PlayGame#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cad/ai/game/TicTacToeAI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="28" lean-forward="false" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cad/ai/game/PlayGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1275">
+          <caret line="85" column="27" lean-forward="true" selection-start-line="85" selection-start-column="27" selection-end-line="85" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#PlayGame#0" expanded="false" />
+            <element signature="class#GameType#0;class#PlayGame#0" expanded="false" />
+            <element signature="docComment;method#PlayGame#0;class#PlayGame#0" expanded="false" />
+            <element signature="e#1591#1600#0" expanded="false" />
+            <element signature="e#1886#1925#0" expanded="false" />
+            <element signature="docComment;method#run#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#run#0;class#PlayGame#0" expanded="false" />
+            <element signature="docComment;method#createGame#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#createGame#0;class#PlayGame#0" expanded="false" />
+            <element signature="docComment;method#playGame#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#playGame#0;class#PlayGame#0" expanded="false" />
+            <element signature="docComment;method#processInput#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processInput#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processErrorMessage#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processMessage#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processGameCommands#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processGameStart#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processGameState#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processGameMove#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processGameErrorMessage#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processGameMessage#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#processGameResult#0;class#PlayGame#0" expanded="false" />
+            <element signature="docComment;method#main#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#main#0;class#PlayGame#0" expanded="false" />
+            <element signature="docComment;method#printUsage#0;class#PlayGame#0" expanded="false" />
+            <element signature="method#printUsage#0;class#PlayGame#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cad/ai/game/TicTacToeAI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -547,23 +742,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
           <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <element signature="docComment;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#TicTacToeAI#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#getRandomMove#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#getSmartMove#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#getEmptySpaces#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#boardToString#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="docComment;method#postWinner#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#postWinner#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="e#5946#5989#0" expanded="false" />
-            <element signature="docComment;method#end#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#end#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#updateLongTermMemory#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#getLongTermMemory#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#main#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="e#8850#8909#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -607,23 +786,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="docComment;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#TicTacToeAI#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#getRandomMove#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#getSmartMove#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#getEmptySpaces#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#boardToString#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="docComment;method#postWinner#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#postWinner#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="e#5946#5989#0" expanded="false" />
-            <element signature="docComment;method#end#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#end#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#updateLongTermMemory#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#getLongTermMemory#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#main#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="e#8850#8909#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -631,23 +794,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1950">
           <caret line="130" column="9" lean-forward="false" selection-start-line="130" selection-start-column="9" selection-end-line="130" selection-end-column="9" />
-          <folding>
-            <element signature="docComment;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#TicTacToeAI#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#getRandomMove#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#getSmartMove#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#getEmptySpaces#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#boardToString#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="docComment;method#postWinner#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#postWinner#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="e#5946#5989#0" expanded="false" />
-            <element signature="docComment;method#end#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#end#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#updateLongTermMemory#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#getLongTermMemory#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#main#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="e#8850#8909#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -691,23 +838,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding>
-            <element signature="docComment;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#TicTacToeAI#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#getRandomMove#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#getSmartMove#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#getEmptySpaces#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#boardToString#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="docComment;method#postWinner#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#postWinner#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="e#5946#5989#0" expanded="false" />
-            <element signature="docComment;method#end#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#end#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#updateLongTermMemory#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#getLongTermMemory#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#main#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="e#8850#8909#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -751,23 +882,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="docComment;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#TicTacToeAI#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#getRandomMove#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#getSmartMove#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#getEmptySpaces#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#boardToString#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="docComment;method#postWinner#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#postWinner#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="e#5946#5989#0" expanded="false" />
-            <element signature="docComment;method#end#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#end#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#updateLongTermMemory#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#getLongTermMemory#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#main#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="e#8850#8909#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -818,23 +933,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="docComment;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#TicTacToeAI#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#getRandomMove#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#getSmartMove#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#getEmptySpaces#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#boardToString#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="docComment;method#postWinner#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#postWinner#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="e#5946#5989#0" expanded="false" />
-            <element signature="docComment;method#end#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#end#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#updateLongTermMemory#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#getLongTermMemory#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#main#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="e#8850#8909#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -888,13 +987,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cad/ai/game/ShortTermMemory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cad/ai/game/TicTacToeGame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="381">
@@ -930,10 +1022,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/cad/ai/game/BoardRecord.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/cad/ai/game/PlayGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="85" column="27" lean-forward="true" selection-start-line="85" selection-start-column="27" selection-end-line="85" selection-end-column="27" />
+        <state relative-caret-position="224">
+          <caret line="79" column="27" lean-forward="true" selection-start-line="79" selection-start-column="27" selection-end-line="79" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#PlayGame#0" expanded="false" />
@@ -968,25 +1068,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cad/ai/game/TicTacToeAI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="30" column="28" lean-forward="false" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
-          <folding>
-            <element signature="docComment;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#TicTacToeAI#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#getRandomMove#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#getSmartMove#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#getEmptySpaces#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#boardToString#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="docComment;method#postWinner#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#postWinner#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="e#5946#5989#0" expanded="false" />
-            <element signature="docComment;method#end#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#end#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#updateLongTermMemory#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#getLongTermMemory#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#main#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="e#8850#8909#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="-1219">
+          <caret line="91" column="13" lean-forward="false" selection-start-line="91" selection-start-column="13" selection-end-line="91" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>

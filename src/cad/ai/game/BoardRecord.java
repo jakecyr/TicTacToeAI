@@ -2,11 +2,11 @@ package cad.ai.game;
 
 import java.io.Serializable;
 
-public class ShortTermMemory implements Serializable {
+public class BoardRecord implements Serializable {
 
     private int wins = 0, ties = 0, losses = 0;
 
-    public ShortTermMemory(int wins, int ties, int losses){
+    public BoardRecord(int wins, int ties, int losses){
         this.wins = wins;
         this.ties = ties;
         this.losses = losses;
@@ -34,6 +34,10 @@ public class ShortTermMemory implements Serializable {
 
     public void setLosses(int losses) {
         this.losses = losses;
+    }
+
+    public String toString(){
+        return this.wins + ", " + this.ties + ", " + this.losses;
     }
 
 }
