@@ -40,13 +40,12 @@ public class TeteATete {
     private GameType gameType;
     private int numGames;
     private int verbose;
-    
+
     /**
      * Constructor
      * @param player Whether we are home (0) or away (1)
      * @param hostname The name of the machine to connect to.  If null, player is home.
      * @param port The port to connect to/listen on -1 means use default 1350
-     * @param pname The name of the player
      * @param aiFlag Whether or not to create an AI for this player
      * @param gameType - what type of game to play.
      * @param numGames - the number of games to play.
@@ -72,13 +71,13 @@ public class TeteATete {
 	switch (gameType) {
 	case NIM:
 	    game = new NimGame(player, userIn, ai, false);  // This is a copy of the game to play
-	    if (hostname == null) 
+	    if (hostname == null)
 		// Server also keeps track of the "true" game.
 		serverGame = new NimGame(-1, userIn, null, true);
 	    break;
 	case TTT:
 	    game = new TicTacToeGame(player, userIn, ai, false, verbose);  // This is a copy of the game to play
-	    if (hostname == null) 
+	    if (hostname == null)
 		// Server also keeps track of the "true" game.
 		serverGame = new TicTacToeGame(-1, userIn, null, true, verbose);
 	    break;
@@ -93,7 +92,7 @@ public class TeteATete {
 	case NIM:
 	    ai = new NimAI(); break;
 	case TTT:
-	    ai = new TicTacToeAI("memories3", "memories3", 2); break;
+	    ai = new TicTacToeAI("memoriesH", 2); break;
 	}
     }
 
@@ -129,7 +128,7 @@ public class TeteATete {
      **/
     private void runServerSide() throws IOException {
 	ServerSocket serverSocket = new ServerSocket(port);
-	System.out.println("Waiting for opponent to connect to this machine on port " + 
+	System.out.println("Waiting for opponent to connect to this machine on port " +
 			   serverSocket.getLocalPort() + ".");
 	this.sock = serverSocket.accept();
 	this.out = new PrintWriter(this.sock.getOutputStream(), true);
@@ -149,7 +148,7 @@ public class TeteATete {
 		    // Transmit game state to away and wait for move response
 		    out.println("@GAME:STATE:" + state); out.flush();
 		    String move = in.readLine();
-		    if (move == null) 
+		    if (move == null)
 			throw new IOException("Null value returned.  Assuming opponent is disconnected. Aborting.");
 		    processInput(move, 1-player);
 		}
@@ -176,7 +175,7 @@ public class TeteATete {
 	for (int i = 0; i < numGames; i++) {
 	    createNewGame();  // We are "away"
 
-	    while (game != null) { 
+	    while (game != null) {
 		if (game.isPlayerTurn()) {
 		    // Get the move based on current game state
 		    String move = game.getMove();
@@ -185,7 +184,7 @@ public class TeteATete {
 		} else {
 		    // Wait for a message from the server...
 		    String move = in.readLine();
-		    if (move == null) 
+		    if (move == null)
 			throw new IOException("Null value returned.  Assuming opponent is disconnected. Aborting.");
 		    processInput(move, 1-player);
 		}
@@ -231,7 +230,7 @@ public class TeteATete {
 	    display(pieces[1]);
 	}
     }
-	
+
     synchronized private void processGameCommands(String[] pieces, int p) {
 	if (pieces.length < 2) {
 	    debug("Error.  No game subcommand submitted...");
@@ -252,7 +251,7 @@ public class TeteATete {
     synchronized private void processGameStart(String[] pieces, int p) {
 	debug("Error.  This should not need to be sent in TeteATete matches.");
     }
-    
+
     synchronized private void processGameState(String[] pieces, int p) {
 	if (pieces.length < 3)
 	    debug("No game state information was transmitted!");
@@ -282,7 +281,7 @@ public class TeteATete {
 	    display("GAME ERROR: " + pieces[2]);
 	}
     }
-    
+
     synchronized private void processGameMessage(String[] pieces, int p) {
 	if (pieces.length < 3) {
 	    debug("Game Message was incorrectly transmitted.");
@@ -290,7 +289,7 @@ public class TeteATete {
 	    display(pieces[2]);
 	}
     }
-    
+
     synchronized private void processGameResult(String[] pieces, int p) {
 	if (pieces.length < 3) {
 	    debug("Game Result was incorrectly transmitted.");
@@ -300,7 +299,7 @@ public class TeteATete {
 	    game = null;  // No longer need to store this game
 	}
     }
-    
+
     // Close the connection (can also be used to stop the thread)
     public synchronized void close() {
 	try {
@@ -369,13 +368,13 @@ public class TeteATete {
 	    } catch (Exception e) {
 		printUsage("Error processing parameter: " + arg);
 	    }
-	}	    
+	}
 
 	if (player == -1) {
 	    // Mandatory parameter was not passed!
 	    printUsage("Neither Home nor Away was specified.");
 	}
-	
+
 	TeteATete c = new TeteATete(player, hostname, port, ai, gameType,
 				    repeat, verbose);
 	c.run();
@@ -400,5 +399,5 @@ public class TeteATete {
 	System.err.println("         [+/-]ai  Use or don't use AI");
 	if (message != null) System.err.println("       " + message);
 	System.exit(1);
-    }       
+    }
 }

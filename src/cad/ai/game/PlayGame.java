@@ -64,13 +64,13 @@ public class PlayGame {
                         ai[0] = null;
                         break;
                     case 1:
-                        ai[0] = new TicTacToeAI("memoriesH", "memoriesH", 1);
+                        ai[0] = new TicTacToeAI("memoriesH", 1);
                         break; // Edit these for
                     case 2:
-                        ai[0] = new TicTacToeAI("memoriesH", "memoriesH", 3);
+                        ai[0] = new TicTacToeAI("memoriesH", 1);
                         break; // different params
                     case 3:
-                        ai[0] = new TicTacToeAI("memoriesH", "memoriesH", 3);
+                        ai[0] = new TicTacToeAI("memoriesH", 1);
                         break; // if you want...
                 }
                 switch (awayAI) {
@@ -78,13 +78,13 @@ public class PlayGame {
                         ai[1] = null;
                         break;
                     case 1:
-                        ai[1] = new TicTacToeAI("memoriesA", "memoriesA", 1);
+                        ai[1] = new TicTacToeAI("memoriesA", 1);
                         break; // Edit these as well...
                     case 2:
-                        ai[1] = new TicTacToeAI("memoriesA", "memoriesA", 3);
+                        ai[1] = new TicTacToeAI("memoriesA", 1);
                         break;
                     case 3:
-                        ai[1] = new TicTacToeAI("memoriesA", "memoriesA", 3);
+                        ai[1] = new TicTacToeAI("memoriesA", 1);
                         break;
                 }
                 break;
