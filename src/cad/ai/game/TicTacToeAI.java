@@ -35,6 +35,8 @@ public class TicTacToeAI extends AbstractAI implements Serializable {
 
     private int heat = 10000; //Start low (more random) and increase after each game to get less random
     private int heatMax = 10000; //Maximum heat (keep <= 10,000 while training to allow some exploration
+    private boolean useHeat = false; //Choose to use the heat value or not when deciding to choose a random or smart move.
+    
     private int gamesPlayed = 0; //Count of the games played during the session
 
     public HashMap<String, BoardRecord> longTermMemory;
@@ -72,8 +74,13 @@ public class TicTacToeAI extends AbstractAI implements Serializable {
         char[] board = (char[]) game.getStateAsObject();
 
         //Choose a smart move if that AI is set to "Smart" or if the random value equals 2
-        if (aiType == 1 && ((int) (Math.random() * heat)) != 2) {
-            return "" + getSmartMove(board);
+        if (aiType == 1) {
+            if(useHeat && ((int) (Math.random() * heat)) == 2){
+                return "" + getRandomMove(board);
+            }
+            else{
+                return "" + getSmartMove(board);
+            }
         } else {
             return "" + getRandomMove(board);
         }

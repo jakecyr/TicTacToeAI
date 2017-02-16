@@ -8,12 +8,9 @@
   <component name="ChangeListManager">
     <list default="true" id="69ed690d-69b8-4584-af6a-9df27ccea881" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/cad/ai/game/PlayGame.class" afterPath="$PROJECT_DIR$/bin/cad/ai/game/PlayGame.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/cad/ai/game/TicTacToeAI.class" afterPath="$PROJECT_DIR$/bin/cad/ai/game/TicTacToeAI.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/memoriesA.ser" afterPath="$PROJECT_DIR$/data/memoriesA.ser" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/memoriesH.ser" afterPath="$PROJECT_DIR$/data/memoriesH.ser" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cad/ai/client/GameClient.java" afterPath="$PROJECT_DIR$/src/cad/ai/client/GameClient.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cad/ai/client/TeteATete.java" afterPath="$PROJECT_DIR$/src/cad/ai/client/TeteATete.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cad/ai/game/PlayGame.java" afterPath="$PROJECT_DIR$/src/cad/ai/game/PlayGame.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cad/ai/game/TicTacToeAI.java" afterPath="$PROJECT_DIR$/src/cad/ai/game/TicTacToeAI.java" />
     </list>
@@ -31,11 +28,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PlayGame.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PlayGame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cad/ai/game/PlayGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="76" column="27" lean-forward="true" selection-start-line="76" selection-start-column="27" selection-end-line="76" selection-end-column="27" />
+            <state relative-caret-position="195">
+              <caret line="80" column="58" lean-forward="false" selection-start-line="80" selection-start-column="58" selection-end-line="80" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;class#PlayGame#0" expanded="false" />
@@ -67,16 +64,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TicTacToeAI.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TicTacToeAI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/cad/ai/game/TicTacToeAI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="35" column="28" lean-forward="false" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
+            <state relative-caret-position="155">
+              <caret line="38" column="4" lean-forward="false" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;class#TicTacToeAI#0" expanded="false" />
                 <element signature="method#TicTacToeAI#0;class#TicTacToeAI#0" expanded="false" />
-                <element signature="method#computeMove#0;class#TicTacToeAI#0" expanded="false" />
                 <element signature="method#getRandomMove#0;class#TicTacToeAI#0" expanded="false" />
                 <element signature="method#getSmartMove#0;class#TicTacToeAI#0" expanded="false" />
                 <element signature="method#getEmptySpaces#0;class#TicTacToeAI#0" expanded="false" />
@@ -131,8 +127,8 @@
         <option value="$PROJECT_DIR$/src/cad/ai/game/BoardRecord.java" />
         <option value="$PROJECT_DIR$/src/cad/ai/client/TeteATete.java" />
         <option value="$PROJECT_DIR$/src/cad/ai/client/GameClient.java" />
-        <option value="$PROJECT_DIR$/src/cad/ai/game/TicTacToeAI.java" />
         <option value="$PROJECT_DIR$/src/cad/ai/game/PlayGame.java" />
+        <option value="$PROJECT_DIR$/src/cad/ai/game/TicTacToeAI.java" />
       </list>
     </option>
   </component>
@@ -439,7 +435,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="758" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="758" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -451,7 +447,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35994196" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38606676" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -494,7 +490,6 @@
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#TicTacToeAI#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#computeMove#0;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#getRandomMove#0;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#getSmartMove#0;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#getEmptySpaces#0;class#TicTacToeAI#0" expanded="false" />
@@ -551,7 +546,6 @@
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#TicTacToeAI#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#computeMove#0;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#getRandomMove#0;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#getSmartMove#0;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#getEmptySpaces#0;class#TicTacToeAI#0" expanded="false" />
@@ -608,7 +602,6 @@
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#TicTacToeAI#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#computeMove#0;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#getRandomMove#0;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#getSmartMove#0;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#getEmptySpaces#0;class#TicTacToeAI#0" expanded="false" />
@@ -665,7 +658,6 @@
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#TicTacToeAI#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#computeMove#0;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#getRandomMove#0;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#getSmartMove#0;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#getEmptySpaces#0;class#TicTacToeAI#0" expanded="false" />
@@ -722,7 +714,6 @@
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#TicTacToeAI#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#computeMove#0;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#getRandomMove#0;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#getSmartMove#0;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#getEmptySpaces#0;class#TicTacToeAI#0" expanded="false" />
@@ -779,7 +770,6 @@
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#TicTacToeAI#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#computeMove#0;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#getRandomMove#0;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#getSmartMove#0;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#getEmptySpaces#0;class#TicTacToeAI#0" expanded="false" />
@@ -836,7 +826,6 @@
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#TicTacToeAI#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#computeMove#0;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#getRandomMove#0;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#getSmartMove#0;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#getEmptySpaces#0;class#TicTacToeAI#0" expanded="false" />
@@ -893,7 +882,6 @@
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#TicTacToeAI#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#computeMove#0;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#getRandomMove#0;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#getSmartMove#0;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#getEmptySpaces#0;class#TicTacToeAI#0" expanded="false" />
@@ -916,7 +904,6 @@
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#TicTacToeAI#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#computeMove#0;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#getRandomMove#0;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#getSmartMove#0;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#getEmptySpaces#0;class#TicTacToeAI#0" expanded="false" />
@@ -973,7 +960,6 @@
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#TicTacToeAI#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#computeMove#0;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#getRandomMove#0;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#getSmartMove#0;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#getEmptySpaces#0;class#TicTacToeAI#0" expanded="false" />
@@ -1030,7 +1016,6 @@
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#TicTacToeAI#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#computeMove#0;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#getRandomMove#0;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#getSmartMove#0;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#getEmptySpaces#0;class#TicTacToeAI#0" expanded="false" />
@@ -1094,7 +1079,6 @@
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#TicTacToeAI#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#computeMove#0;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#getRandomMove#0;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#getSmartMove#0;class#TicTacToeAI#0" expanded="false" />
             <element signature="method#getEmptySpaces#0;class#TicTacToeAI#0" expanded="false" />
@@ -1205,33 +1189,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cad/ai/game/TicTacToeAI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="35" column="28" lean-forward="false" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#TicTacToeAI#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#computeMove#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#getRandomMove#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#getSmartMove#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#getEmptySpaces#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#boardToString#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#rememberGame#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#end#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#saveMemory#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#loadMemory#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#updateLongTermMemory#0;class#TicTacToeAI#0" expanded="false" />
-            <element signature="method#getLongTermMemory#0;class#TicTacToeAI#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cad/ai/game/PlayGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="76" column="27" lean-forward="true" selection-start-line="76" selection-start-column="27" selection-end-line="76" selection-end-column="27" />
+        <state relative-caret-position="195">
+          <caret line="80" column="58" lean-forward="false" selection-start-line="80" selection-start-column="58" selection-end-line="80" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#PlayGame#0" expanded="false" />
@@ -1258,6 +1219,28 @@
             <element signature="docComment;method#main#0;class#PlayGame#0" expanded="false" />
             <element signature="docComment;method#printUsage#0;class#PlayGame#0" expanded="false" />
             <element signature="method#printUsage#0;class#PlayGame#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cad/ai/game/TicTacToeAI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="38" column="4" lean-forward="false" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#TicTacToeAI#0" expanded="false" />
+            <element signature="method#TicTacToeAI#0;class#TicTacToeAI#0" expanded="false" />
+            <element signature="method#getRandomMove#0;class#TicTacToeAI#0" expanded="false" />
+            <element signature="method#getSmartMove#0;class#TicTacToeAI#0" expanded="false" />
+            <element signature="method#getEmptySpaces#0;class#TicTacToeAI#0" expanded="false" />
+            <element signature="method#boardToString#0;class#TicTacToeAI#0" expanded="false" />
+            <element signature="method#rememberGame#0;class#TicTacToeAI#0" expanded="false" />
+            <element signature="method#end#0;class#TicTacToeAI#0" expanded="false" />
+            <element signature="method#saveMemory#0;class#TicTacToeAI#0" expanded="false" />
+            <element signature="method#loadMemory#0;class#TicTacToeAI#0" expanded="false" />
+            <element signature="method#updateLongTermMemory#0;class#TicTacToeAI#0" expanded="false" />
+            <element signature="method#getLongTermMemory#0;class#TicTacToeAI#0" expanded="false" />
           </folding>
         </state>
       </provider>
